@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useRef } from "react";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import Image from "next/image";
@@ -9,6 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
 import {
   Sheet,
   SheetContent,
@@ -16,6 +18,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+
 import { ModeToggle } from "./mode-toggle";
 
 const links = [
@@ -36,8 +39,16 @@ const MenuLinks = ({ isSheet = false }) => (
 );
 
 const Header = () => {
+  const inputRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
+
   return (
-    <div className="sticky top-0 bg-white dark:bg-black z-10">
+    <header className="sticky top-0 bg-white dark:bg-black z-10">
       <div className="xl:w-[95%] m-auto relative flex justify-between items-center py-3 xl:py-7">
         <MenuLinks />
         <Link
@@ -49,14 +60,43 @@ const Header = () => {
             alt="logo"
             width={500}
             height={300}
-            className="w-[75%] xs:w-[50%] sm:w-[35%]"
+            className="w-[90%] xs:w-[60%] sm:w-[45%]"
             priority
           />
         </Link>
-        <div className="flex">
+        <div className="flex items-center">
+          <Button
+            onMouseEnter={handleMouseEnter}
+            className="bg-white dark:bg-black absolute px-3 group -bottom-[65px] left-1/2 translate-x-[100px] lg:bottom-auto lg:left-auto lg:translate-x-0 lg:relative"
+            variant="ghost"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1.6em"
+              height="1.6em"
+              viewBox="0 0 32 32"
+              className="transition-transform duration-300"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="m5 27l7.5-7.5M28 13a9 9 0 1 1-18 0a9 9 0 0 1 18 0"
+              />
+            </svg>
+            <input
+              id="input-search"
+              type="text"
+              ref={inputRef}
+              placeholder="Bạn tìm kiếm gì nào..."
+              className="translate-x-[5px] rounded-tl-[8px] rounded-bl-[8px] absolute right-full h-full px-10 transition-transform duration-300 transform lg:scale-x-0 lg:group-hover:scale-x-100 lg:origin-right"
+            />
+          </Button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost">
+              <Button className="px-3" variant="ghost">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="1.6em"
@@ -85,7 +125,7 @@ const Header = () => {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <Button variant="ghost">
+          <Button className="px-3" variant="ghost">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="1.6em"
@@ -98,7 +138,7 @@ const Header = () => {
               />
             </svg>
           </Button>
-          <Button variant="ghost">
+          <Button className="px-3" variant="ghost">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="1.6em"
@@ -113,7 +153,7 @@ const Header = () => {
           </Button>
           <ModeToggle />
           <Sheet>
-            <SheetTrigger className="px-2 xl:hidden">
+            <SheetTrigger className="px-3 xl:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="1.6em"
@@ -134,7 +174,7 @@ const Header = () => {
           </Sheet>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

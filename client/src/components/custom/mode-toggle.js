@@ -38,7 +38,7 @@ export function ModeToggle() {
   return (
     <Button
       variant="ghost"
-      size="icon"
+      className="px-3"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       <span className="sr-only">Toggle theme</span>

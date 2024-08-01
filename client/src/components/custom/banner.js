@@ -24,7 +24,7 @@ const Banner = () => {
       <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white">
         <div className="relative">
           <motion.span
-            className="uppercase text-5xl md:text-6xl lg:text-8xl font-bold"
+            className="uppercase text-4xl xs:text-5xl sm:text-7xl md:text-8xl font-bold"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { StoreProvider } from "@/app/store/StoreProvider";
 import Header from "@/components/custom/header";
 import { ThemeProvider } from "@/components/custom/theme-provider";
+import Footer from "@/components/custom/footer";
 
 const myFont = localFont({
   src: "./font/Montserrat-VariableFont_wght.ttf",
@@ -26,7 +27,7 @@ export default function RootLayout({ children }) {
           >
             <Header />
             {children}
-            <footer>123</footer>
+            <Footer />
           </ThemeProvider>
         </body>
       </html>
