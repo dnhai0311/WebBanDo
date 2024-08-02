@@ -1,5 +1,4 @@
-"use client";
-import React, { useRef } from "react";
+import React from "react";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import Image from "next/image";
@@ -20,6 +19,7 @@ import {
 } from "@/components/ui/sheet";
 
 import { ModeToggle } from "./mode-toggle";
+import SearchBar from "./search-bar";
 
 const links = [
   { href: "/women", label: "Thời trang nữ" },
@@ -39,17 +39,9 @@ const MenuLinks = ({ isSheet = false }) => (
 );
 
 const Header = () => {
-  const inputRef = useRef(null);
-
-  const handleMouseEnter = () => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  };
-
   return (
     <header className="sticky top-0 bg-white dark:bg-black z-10">
-      <div className="xl:w-[95%] m-auto relative flex justify-between items-center py-3 xl:py-7">
+      <div className="xl:w-[98%] m-auto relative flex justify-between items-center py-3 xl:py-7">
         <MenuLinks />
         <Link
           href="/"
@@ -65,35 +57,7 @@ const Header = () => {
           />
         </Link>
         <div className="flex items-center">
-          <Button
-            onMouseEnter={handleMouseEnter}
-            className="bg-white dark:bg-black absolute px-3 group -bottom-[65px] left-1/2 translate-x-[100px] lg:bottom-auto lg:left-auto lg:translate-x-0 lg:relative"
-            variant="ghost"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="1.6em"
-              height="1.6em"
-              viewBox="0 0 32 32"
-              className="transition-transform duration-300"
-            >
-              <path
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m5 27l7.5-7.5M28 13a9 9 0 1 1-18 0a9 9 0 0 1 18 0"
-              />
-            </svg>
-            <input
-              id="input-search"
-              type="text"
-              ref={inputRef}
-              placeholder="Bạn tìm kiếm gì nào..."
-              className="translate-x-[5px] rounded-tl-[8px] rounded-bl-[8px] absolute right-full h-full px-10 transition-transform duration-300 transform lg:scale-x-0 lg:group-hover:scale-x-100 lg:origin-right"
-            />
-          </Button>
+          <SearchBar />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button className="px-3" variant="ghost">
