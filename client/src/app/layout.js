@@ -1,12 +1,12 @@
 import "@/app/globals.css";
 import localFont from "next/font/local";
-import { StoreProvider } from "@/app/store/StoreProvider";
+import { StoreProvider } from "@/store/StoreProvider";
 import Header from "@/components/custom/header";
 import { ThemeProvider } from "@/components/custom/theme-provider";
 import Footer from "@/components/custom/footer";
 
 const myFont = localFont({
-  src: "./font/Montserrat-VariableFont_wght.ttf",
+  src: "../font/Montserrat-VariableFont_wght.ttf",
   display: "swap",
 });
 export const metadata = {

@@ -124,7 +124,7 @@ const FutureBox = ({ img, alt }) => {
           x: isInView ? 0 : -200,
         }}
         transition={{ duration: 0.9, delay: 0.5, ease: "easeInOut" }}
-        className="text-nowrap text-xl xs:text-2xl sm:text-4xl lg:texxt-5xl uppercase font-light bg-white rounded-[5px] py-2 px-6 absolute shadow-xl "
+        className="text-nowrap text-xl xs:text-2xl sm:text-4xl lg:texxt-5xl uppercase font-light bg-white dark:bg-black rounded-[5px] py-2 px-6 absolute shadow-xl "
       >
         {alt}
       </motion.div>
@@ -145,7 +145,7 @@ const LandingPage = () => {
         </span>
         <ProductBox img="/images/banner-girl-2.jpg" alt={""} />
       </div>
-      <div>
+      <div className="mb-20">
         <span className="flex  items-center justify-center m-10 lg:text-2xl font-bold uppercase">
           Vì sao chọn Phong cách Shop
         </span>

@@ -14,7 +14,7 @@ const Footer = () => {
   const menuItems2 = ["Về chúng tôi", "Danh sách cửa hàng"];
 
   return (
-    <footer className="bg-black mt-20 text-white py-20 px-3 md:px-8 flex flex-col md:flex-row justify-between gap-10">
+    <footer className="bg-black text-white py-20 px-3 md:px-8 flex flex-col md:flex-row justify-between gap-10">
       <Link className="md:w-[20%] order-3 md:order-1" href={"/"}>
         <Image
           src="/images/logo.png"
